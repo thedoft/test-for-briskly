@@ -1,0 +1,10 @@
+@import './__submit-button/form__submit-button.css';
+
+.form {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

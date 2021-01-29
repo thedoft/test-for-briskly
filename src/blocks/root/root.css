@@ -1,0 +1,13 @@
+.root {
+  min-width: 1024px;
+  max-width: 1980px;
+  height: 1px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe4c4;
+}
