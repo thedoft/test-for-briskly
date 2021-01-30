@@ -1,8 +1,9 @@
+@import './__title/form__title.css';
 @import './__submit-button/form__submit-button.css';
 
 .form {
-  width: 80%;
-  height: 100%;
+  width: 50%;
+  max-height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -10,7 +10,7 @@ function App() {
 
   return (
     <form className="form">
-      <h1 className="form__title">Перетащите файлы</h1>
+      <h1 className="form__title">Перетащите картинки</h1>
       <Upload />
       <button className="form__submit-button" onClick={handleSubmit}>Отправить</button>
     </form>
