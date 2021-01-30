@@ -8,9 +8,9 @@
   background-color: #cd853f;
   cursor: pointer;
   outline: none;
-}
 
-.form__submit-button:hover {
-  opacity: .8;
-  box-shadow: #000 0 0 5px;
+  &:hover {
+    opacity: .8;
+    box-shadow: #000 0 0 5px;
+  }
 }
