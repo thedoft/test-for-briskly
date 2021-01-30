@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Upload from './Upload';
 
 function App() {
+  const [files, setFiles] = useState([]);
+
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    console.log('submit');
+    console.log(files);
   }
 
   return (
     <form className="form">
       <h1 className="form__title">Перетащите картинки</h1>
-      <Upload />
+      <Upload setFiles={setFiles} />
       <button className="form__submit-button" onClick={handleSubmit}>Отправить</button>
     </form>
   );

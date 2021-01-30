@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import Preview from './Preview';
 
 function Upload(props) {
-  const [files, setFiles] = useState([]);
+  function setFiles(files) {
+    props.setFiles(files);
+  }
+
   const [fileNames, setFileNames] = useState([]);
   const [images, setImages] = useState([]);
 
@@ -34,31 +37,24 @@ function Upload(props) {
     toggleElementClass(evt);
 
     const uploadedFiles = [...evt.dataTransfer.files];
-    const filteredByTypeFiles = uploadedFiles.filter((file) => file.type.startsWith('image/'));
-
-    setFiles([...files, ...filteredByTypeFiles]);
-  }
-
-  React.useEffect(() => {
-    function previewFile(file) {
-      if (file) {
-        const reader = new FileReader();
-
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-          const img = { src: reader.result };
-
-          setImages(images => [...images, img]);
-          setFileNames([...fileNames, file.name]);
-        }
-      }
-      return;
-    }
-
-    const filteredFiles = files.filter((file) => !fileNames.includes(file.name));
+    const filteredFiles = uploadedFiles
+      .filter((file) => file.type.startsWith('image/') && !fileNames.includes(file.name));
 
     filteredFiles.forEach(previewFile);
-  }, [files, fileNames]);
+  }
+
+  function previewFile(file) {
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      const img = { src: reader.result };
+
+      setFileNames(fileNames => [...fileNames, file.name]);
+      setImages(images => [...images, img]);
+      setFiles(files => [...files, reader.result]);
+    }
+  }
 
   return (
     <div className="upload"
