@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Preview from './Preview';
 
 function Upload(props) {
-  function setFiles(files) {
-    props.setFiles(files);
-  }
-
-  const [fileNames, setFileNames] = useState([]);
-  const [images, setImages] = useState([]);
+  const { setFiles, fileNames, setFileNames, images, setImages } = props;
 
   function preventDefaults(evt) {
     evt.preventDefault();
